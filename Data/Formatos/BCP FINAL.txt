@@ -1,1 +1,0 @@
-BCP [{1}].[dbo].[CSACHARPROCESSTABLE] in "{0}" -T -t"{2}" -c -S localhost

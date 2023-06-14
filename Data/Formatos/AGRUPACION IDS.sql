@@ -1,2 +1,0 @@
-SELECT cuenta FROM [dbo].[CSACHARINPUTTABLE]
-GROUP BY cuenta
