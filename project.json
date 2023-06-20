@@ -1,6 +1,6 @@
 {
   "name": "PreciosDiesel",
-  "description": "",
+  "description": "Proceso PreciosDiesel",
   "main": "Main.xaml",
   "dependencies": {
     "Alphabet.Workflow.Activities": "[3.2.0]",
