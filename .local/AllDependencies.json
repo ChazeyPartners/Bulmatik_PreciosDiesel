@@ -7982,6 +7982,7 @@
       "path": "microsoft.azure.keyvault.core/1.0.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "lib/net40/Microsoft.Azure.KeyVault.Core.dll",
         "lib/net40/Microsoft.Azure.KeyVault.Core.xml",
         "lib/portable-net45+wp8+wpa81+win/Microsoft.Azure.KeyVault.Core.dll",
@@ -12857,15 +12858,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LENOVO\\.nuget\\packages\\": {}
+    "C:\\Users\\administrador.BULKMATIC\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "PreciosDiesel",
       "projectName": "PreciosDiesel",
-      "projectPath": "C:\\Users\\LENOVO\\Documents\\GitHub\\Bulmatik_PreciosDiesel\\.local",
-      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LENOVO\\Documents\\GitHub\\Bulmatik_PreciosDiesel\\.local"
+      "projectPath": "C:\\Users\\administrador.BULKMATIC\\Documents\\GitHub\\Bulmatik_PreciosDiesel\\.local",
+      "packagesPath": "C:\\Users\\administrador.BULKMATIC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\administrador.BULKMATIC\\Documents\\GitHub\\Bulmatik_PreciosDiesel\\.local"
     },
     "frameworks": {
       "net461": {
@@ -12916,7 +12917,7 @@
             "version": "[1.7.0, 1.7.0]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\LENOVO\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {

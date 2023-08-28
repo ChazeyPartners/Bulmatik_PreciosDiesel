@@ -12,6 +12,13 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "vBooSuccess&State_3",
+        "vIntIndex&Sequence_159",
+        "vDtbReporte&Sequence_159",
+        "vObjWB&Sequence_160",
+        "vStrRutaReporte&StateMachine_1",
+        "vStrRutaDescarga&Sequence_71",
+        "vBooDescarga&Sequence_71",
         "vBooReporte&Sequence_71",
         "TransactionItem&StateMachine_1",
         "SystemException&StateMachine_1",
@@ -153,7 +160,124 @@
       "Path": "Process.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "vBoolVacio&Sequence_4",
+        "vStrPrecioVigor&Sequence_1",
+        "vStrPrecioHoy&Sequence_1",
+        "vStrTerminal&Sequence_1",
+        "vStrActivityName&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_TransactionItem",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllSettings.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vStrActivityName&Sequence_2",
+        "SettingsAndConstants&Sequence_5",
+        "Assets&Sequence_6",
+        "AssetValue&Sequence_11"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_ConfigFile",
+        "in_ConfigSheets",
+        "out_Config"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Apps/NAV/ImputarPrecios.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vBooErrorNotificacion&Sequence_20",
+        "vBooNotificar&Sequence_19",
+        "vBooTablaCostos&Sequence_1",
+        "vStrActivityName&Sequence_1",
+        "vObjWB&Sequence_1",
+        "vDtbParametrico&Sequence_1",
+        "vBooCorrespondeDia&Sequence_1",
+        "vDtbReporte&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_StrPrecioVigor",
+        "in_StrPrecioHoy",
+        "in_StrTerminal",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/Add2Queues.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vStrActivityName&Sequence_1",
+        "vBooQueue&Sequence_1",
+        "vDtbPreciosHoy&Sequence_8",
+        "vStrComentario&Sequence_10",
+        "vStrObservacion&Sequence_12",
+        "vStrValorVigor&Sequence_8",
+        "vArrQueue&Sequence_10",
+        "vIntindex&Sequence_8",
+        "vDtbVigor&Sequence_8",
+        "vObjWB&Sequence_1",
+        "vDtbQueue&Sequence_1",
+        "vDtbSharepoint&Sequence_4",
+        "vDtbFrog&Sequence_4"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_StrPathDescargaHoy",
+        "in_StrPathTarifaVigor",
+        "in_StrPathReporte",
+        "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Apps/Chrome/ConsultarPrecios.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vStrActivityName&Sequence_1",
+        "vObjWB&Sequence_1",
+        "vDtbParametrico&Sequence_1",
+        "vBooCorrespondeDia&Sequence_1",
+        "vDtbReporte&Sequence_1",
+        "vStrTerminal&Sequence_6",
+        "vStrNAV&Sequence_6",
+        "vStrURL&Sequence_6",
+        "vStrFechaCompleta&Sequence_4",
+        "vStrFecha&Sequence_4",
+        "vStrPrecioDiesel&Sequence_4",
+        "vStrPrecioSinIVA&Sequence_4",
+        "vArrRowReporte&Sequence_4",
+        "vDouNoIVA&Sequence_4",
+        "vDatFecha&Sequence_7"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "in_StrPathReporte"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Test.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vStrSE&Sequence_45",
+        "vStrBE&Sequence_45",
+        "vObjWB&Sequence_1",
+        "vDtbReporte&Sequence_45",
+        "vIntIndex&Sequence_45",
+        "vObjUiElement&Sequence_1",
+        "vStrUsername&Sequence_1",
+        "vStrPassword&Sequence_1",
+        "Config&Sequence_1",
         "vStrActivityName&Sequence_1",
         "vLisNoCumplen&Sequence_1",
         "vDtbCuentas&Sequence_1",
@@ -162,30 +286,49 @@
         "vStrSociedad&Sequence_1",
         "vStrDiasPermetidos&Sequence_1",
         "vDtbCongelados&Sequence_1",
-        "vStrCuentaBancaria&Sequence_2",
-        "vIntFila&Sequence_4",
-        "vBoolExiste&Sequence_4",
-        "vBoolList&Sequence_4",
-        "vObjWB&Sequence_4",
-        "vDtbListado&Sequence_4",
-        "vStrEstado&Sequence_21",
-        "vBoolWhile&Sequence_20",
-        "vIntIndex&Sequence_15",
-        "vBoolCongelado&Sequence_15",
-        "vBoolGeneral&Sequence_5",
-        "vIntIndex&Sequence_22",
-        "vStrDocumentoB&Sequence_6",
-        "vStrSAPb&Sequence_6",
-        "vStrMontoB&Sequence_6",
-        "vIntIndex&Sequence_36",
-        "vStrDocumentoB&Sequence_7",
-        "vStrSAPb&Sequence_7",
-        "vStrMontoB&Sequence_7",
-        "vIntIndex&Sequence_37"
+        "vStrFechaCompleta&Sequence_1",
+        "vStrFecha&Sequence_1",
+        "vDatFecha&Sequence_1",
+        "vArrResults&Sequence_1",
+        "vStrPrecioDiesel&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
         "in_TransactionItem",
         "in_Config"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/CleanQueueOrchestrator.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vStrHeaderSequence&Sequence_1",
+        "vQueueItems&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_StrQueueName",
+        "in_StrPathFolder"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Framework/InitAllApplications.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vStrPassword&Sequence_27",
+        "vStrUsername&Sequence_27",
+        "vColProcesos&Sequence_9",
+        "vStrActivityName&Sequence_9",
+        "vBooConectar&Sequence_24",
+        "vStrUsername&Sequence_26",
+        "vStrPassword&Sequence_26"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_Config",
+        "out_BooProcess",
+        "in_BooInitAll"
       ],
       "ConstantsSectionElementsOrder": null,
       "AddedNamespaces": null

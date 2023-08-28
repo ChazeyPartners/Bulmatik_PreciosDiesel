@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Initialize_Applications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:aw="clr-namespace:Alphabet.Workflow;assembly=GetXamlFileNameActivity" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Diagnostics;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Initialize_Applications" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:aw="clr-namespace:Alphabet.Workflow;assembly=GetXamlFileNameActivity" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Diagnostics;assembly=System" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data. This structure can be used to store, for example, an URL for a system that needs to be initialized. &#xA;It is not recommended to use it to store credentials; instead, store them on Orchestrator and just pass the name of the credential asset as a setting in this dictionary. Then use the GetAppCredentials workflow to retrieve the credentials securely." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="out_BooProcess" Type="OutArgument(x:Boolean)" />
@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1137,4124</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1303,5036</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="46">
@@ -45,10 +45,16 @@
       <x:String>System.ComponentModel</x:String>
       <x:String>UiPath.Mail</x:String>
       <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="40">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="80">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -88,9 +94,13 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
       <AssemblyReference>UiPathTeam.SharePoint.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="975,4059" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1363,5266" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <Sequence.Variables>
       <Variable x:TypeArguments="sco:Collection(sd:Process)" Name="vColProcesos" />
       <Variable x:TypeArguments="x:String" Name="vStrActivityName" />
@@ -101,11 +111,11 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <aw:GetParentActivityName DisplayName="Get parent activity name" sap:VirtualizedContainerService.HintSize="933,22" sap2010:WorkflowViewState.IdRef="GetParentActivityName_1" parentName="[vStrActivityName]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="933,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;[&quot;+vStrActivityName+&quot;] ha comenzado...&quot;]" />
-    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="933,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Abriendo applications...&quot;]" />
-    <ui:GetProcesses ContinueOnError="{x:Null}" DisplayName="Obtener procesos" sap:VirtualizedContainerService.HintSize="933,22" sap2010:WorkflowViewState.IdRef="GetProcesses_1" Processes="[vColProcesos]" />
-    <If Condition="[vColProcesos.Where(Function(proc) proc.ToString.ToLower.Contains(&quot;outlook&quot;)).count &gt; 0]" DisplayName="Si" sap:VirtualizedContainerService.HintSize="933,780" sap2010:WorkflowViewState.IdRef="If_1">
+    <aw:GetParentActivityName DisplayName="Get parent activity name" sap:VirtualizedContainerService.HintSize="1301,25" sap2010:WorkflowViewState.IdRef="GetParentActivityName_1" parentName="[vStrActivityName]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1301,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;[&quot;+vStrActivityName+&quot;] ha comenzado...&quot;]" />
+    <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="1301,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Abriendo applications...&quot;]" />
+    <ui:GetProcesses ContinueOnError="{x:Null}" DisplayName="Obtener procesos" sap:VirtualizedContainerService.HintSize="1301,25" sap2010:WorkflowViewState.IdRef="GetProcesses_1" Processes="[vColProcesos]" />
+    <If Condition="[vColProcesos.Where(Function(proc) proc.ToString.ToLower.Contains(&quot;outlook&quot;)).count &gt; 0]" DisplayName="Si" sap:VirtualizedContainerService.HintSize="1301,653" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -113,56 +123,45 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <ui:LogMessage DisplayName="Registrar mensaje" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Outlook ya se encuentra iniciado&quot;]" />
+        <ui:LogMessage DisplayName="Registrar mensaje" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Outlook ya se encuentra iniciado&quot;]" />
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="554,622" sap2010:WorkflowViewState.IdRef="Sequence_11">
+        <Sequence DisplayName="Secuencia" sap:VirtualizedContainerService.HintSize="546,493" sap2010:WorkflowViewState.IdRef="Sequence_11">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Registrar mensaje" sap:VirtualizedContainerService.HintSize="512,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Iniciando outlook ...&quot;]" />
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="512,399" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-            <ui:CommentOut.Body>
-              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,321" sap2010:WorkflowViewState.IdRef="Sequence_22">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:OpenApplication ApplicationWindow="{x:Null}" Arguments="{x:Null}" TimeoutMS="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Abrir aplicación 'OUTLOOK.EXE Inbox'" FileName="C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE" sap:VirtualizedContainerService.HintSize="434,229" sap2010:WorkflowViewState.IdRef="OpenApplication_3" InformativeScreenshot="9b59e4c804c4cc8f912a9b5b5240d32b" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' omit:title='Inbox - rpacscp2p@dospinos.com - Outlook' /&gt;">
-                  <ui:OpenApplication.Body>
-                    <ActivityAction x:TypeArguments="x:Object">
-                      <ActivityAction.Argument>
-                        <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-                      </ActivityAction.Argument>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_10">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                      </Sequence>
-                    </ActivityAction>
-                  </ui:OpenApplication.Body>
-                </ui:OpenApplication>
-              </Sequence>
-            </ui:CommentOut.Body>
-          </ui:CommentOut>
+          <ui:LogMessage DisplayName="Registrar mensaje" sap:VirtualizedContainerService.HintSize="484,92" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Iniciando outlook ...&quot;]" />
+          <ui:OpenApplication ApplicationWindow="{x:Null}" Arguments="{x:Null}" TimeoutMS="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Abrir aplicación 'OUTLOOK.EXE Inbox'" FileName="C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE" sap:VirtualizedContainerService.HintSize="484,250" sap2010:WorkflowViewState.IdRef="OpenApplication_4" InformativeScreenshot="9b59e4c804c4cc8f912a9b5b5240d32b" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' omit:title='Inbox - rpacscp2p@dospinos.com - Outlook' /&gt;">
+            <ui:OpenApplication.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,103" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </ActivityAction>
+            </ui:OpenApplication.Body>
+          </ui:OpenApplication>
         </Sequence>
       </If.Else>
     </If>
-    <If Condition="[in_BooInitAll]" sap:VirtualizedContainerService.HintSize="933,2499" sap2010:WorkflowViewState.IdRef="If_3">
+    <If Condition="[in_BooInitAll]" sap:VirtualizedContainerService.HintSize="1301,3783" sap2010:WorkflowViewState.IdRef="If_3">
       <If.Then>
-        <Sequence DisplayName="Realmente inicia todas las aplicaciones y no solo outlook" sap:VirtualizedContainerService.HintSize="716,2322" sap2010:WorkflowViewState.IdRef="Sequence_20">
+        <Sequence DisplayName="Realmente inicia todas las aplicaciones y no solo outlook" sap:VirtualizedContainerService.HintSize="1265,3594" sap2010:WorkflowViewState.IdRef="Sequence_20">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="674,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Trace" Message="[&quot;Procediendo a enviar correo electronico de inicio de la ejecución...&quot;]" />
-          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="674,2099" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+          <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="1203,92" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Trace" Message="[&quot;Procediendo a enviar correo electronico de inicio de la ejecución...&quot;]" />
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1203,1131" sap2010:WorkflowViewState.IdRef="TryCatch_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -170,44 +169,33 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <TryCatch.Try>
-              <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="636,1872" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
+              <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="592,903" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
                 <ui:RetryScope.ActivityBody>
                   <ActivityAction>
-                    <Sequence DisplayName="Envío correo inicio de ejecución" sap:VirtualizedContainerService.HintSize="594,1698" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                    <Sequence DisplayName="Envío correo inicio de ejecución" sap:VirtualizedContainerService.HintSize="550,728" sap2010:WorkflowViewState.IdRef="Sequence_12">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="552,1606" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                      <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="488,617" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                         <TryCatch.Try>
-                          <Sequence sap:VirtualizedContainerService.HintSize="478,538" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                          <Sequence sap:VirtualizedContainerService.HintSize="450,389" sap2010:WorkflowViewState.IdRef="Sequence_16">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,315" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-                              <ui:CommentOut.Body>
-                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,237" sap2010:WorkflowViewState.IdRef="Sequence_23">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;El proceso se ha iniciado.&quot;+vbNewLine+&quot;Tenga un buen día.&quot;]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="[String.Format(&quot;:: El asistente virtual {0} ha iniciado su procesamiento::&quot;,in_Config(&quot;name&quot;).ToString)]" To="[in_Config(&quot;CorreoInicioFin&quot;).ToString]">
-                                    <ui:SendOutlookMail.Files>
-                                      <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
-                                    </ui:SendOutlookMail.Files>
-                                  </ui:SendOutlookMail>
-                                </Sequence>
-                              </ui:CommentOut.Body>
-                            </ui:CommentOut>
-                            <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="436,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Correo de inicio enviado exitosamente.&quot;]" />
+                            <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;El proceso se ha iniciado.&quot;+vbNewLine+&quot;Tenga un buen día.&quot;]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="388,146" sap2010:WorkflowViewState.IdRef="SendOutlookMail_3" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="[String.Format(&quot;:: El asistente virtual {0} ha iniciado su procesamiento::&quot;,in_Config(&quot;name&quot;).ToString)]" To="[in_Config(&quot;CorreoInicioFin&quot;).ToString]">
+                              <ui:SendOutlookMail.Files>
+                                <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                              </ui:SendOutlookMail.Files>
+                            </ui:SendOutlookMail>
+                            <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Correo de inicio enviado exitosamente.&quot;]" />
                           </Sequence>
                         </TryCatch.Try>
                         <TryCatch.Catches>
-                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="518,862" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                          <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="454,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -218,23 +206,23 @@
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                               </ActivityAction.Argument>
-                              <If Condition="[exception.Message.ToLower.Contains(&quot;tiempo de espera&quot;)]" sap:VirtualizedContainerService.HintSize="512,793" sap2010:WorkflowViewState.IdRef="If_2">
+                              <If Condition="[exception.Message.ToLower.Contains(&quot;tiempo de espera&quot;)]" sap:VirtualizedContainerService.HintSize="582,851" sap2010:WorkflowViewState.IdRef="If_2">
                                 <If.Then>
-                                  <Sequence sap:VirtualizedContainerService.HintSize="476,617" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                  <Sequence sap:VirtualizedContainerService.HintSize="546,664" sap2010:WorkflowViewState.IdRef="Sequence_13">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="434,132" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="outlook" />
-                                    <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
-                                    <ui:OpenApplication ApplicationWindow="{x:Null}" Arguments="{x:Null}" TimeoutMS="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Abrir aplicación 'OUTLOOK.EXE Inbox'" FileName="C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE" sap:VirtualizedContainerService.HintSize="434,229" sap2010:WorkflowViewState.IdRef="OpenApplication_2" InformativeScreenshot="9b59e4c804c4cc8f912a9b5b5240d32b" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' omit:title='Inbox - rpacscp2p@dospinos.com - Outlook' /&gt;">
+                                    <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="484,133" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="outlook" />
+                                    <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="484,25" sap2010:WorkflowViewState.IdRef="Delay_1" />
+                                    <ui:OpenApplication ApplicationWindow="{x:Null}" Arguments="{x:Null}" TimeoutMS="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Abrir aplicación 'OUTLOOK.EXE Inbox'" FileName="C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE" sap:VirtualizedContainerService.HintSize="484,250" sap2010:WorkflowViewState.IdRef="OpenApplication_2" InformativeScreenshot="9b59e4c804c4cc8f912a9b5b5240d32b" Selector="&lt;wnd app='outlook.exe' cls='rctrl_renwnd32' omit:title='Inbox - rpacscp2p@dospinos.com - Outlook' /&gt;">
                                       <ui:OpenApplication.Body>
                                         <ActivityAction x:TypeArguments="x:Object">
                                           <ActivityAction.Argument>
                                             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                                           </ActivityAction.Argument>
-                                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,103" sap2010:WorkflowViewState.IdRef="Sequence_15">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -244,7 +232,7 @@
                                         </ActivityAction>
                                       </ui:OpenApplication.Body>
                                     </ui:OpenApplication>
-                                    <Rethrow sap:VirtualizedContainerService.HintSize="434,22" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+                                    <Rethrow sap:VirtualizedContainerService.HintSize="484,25" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
                                   </Sequence>
                                 </If.Then>
                                 <If.Else>
@@ -270,7 +258,7 @@
               </ui:RetryScope>
             </TryCatch.Try>
             <TryCatch.Catches>
-              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="640,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="596,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -281,11 +269,324 @@
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                   </ActivityAction.Argument>
-                  <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Error" Message="[&quot;No se pudo enviar correo de inicio de sesión después de 3 reintentos, validar manualmente.&quot;]" />
+                  <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Error" Message="[&quot;No se pudo enviar correo de inicio de sesión después de 3 reintentos, validar manualmente.&quot;]" />
                 </ActivityAction>
               </Catch>
             </TryCatch.Catches>
           </TryCatch>
+          <Sequence DisplayName="AbrirNAVyLoggearse" sap:VirtualizedContainerService.HintSize="1203,2180" sap2010:WorkflowViewState.IdRef="Sequence_25">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:OpenApplication ApplicationWindow="{x:Null}" Arguments="{x:Null}" TimeoutMS="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Open Application 'NAV'" FileName="C:\Program Files (x86)\Microsoft Dynamics NAV\60\Classic\finsql.exe" sap:VirtualizedContainerService.HintSize="1141,2069" sap2010:WorkflowViewState.IdRef="OpenApplication_5" InformativeScreenshot="357e00d24c07228df7688ef0ff3ca50c" Selector="&lt;wnd app='finsql.exe' cls='C/SIDE Application' title='Microsoft Dynamics NAV Classic' /&gt;">
+              <ui:OpenApplication.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1107,1922" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Boolean" Name="vBooConectar" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:UiElementExists DisplayName="Element Exists 'Conexión'" Exists="[vBooConectar]" sap:VirtualizedContainerService.HintSize="1045,107" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                      <ui:UiElementExists.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cf408b01-bc50-4d8d-b1bb-d520e1f2a9f2" InformativeScreenshot="9bf81d9bb41193f55e882e9c09429d6a" Selector="&lt;wnd app='finsql.exe' cls='C/SIDE Glued' title='Conexión' /&gt;&lt;ctrl name='Conexión' role='client' /&gt;" TimeoutMS="5000">
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:UiElementExists.Target>
+                    </ui:UiElementExists>
+                    <If Condition="[vBooConectar]" sap:VirtualizedContainerService.HintSize="1045,1664" sap2010:WorkflowViewState.IdRef="If_4">
+                      <If.Then>
+                        <Sequence DisplayName="SeVisualizcONEXION" sap:VirtualizedContainerService.HintSize="500,1212" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="vStrUsername" />
+                            <Variable x:TypeArguments="ss:SecureString" Name="vStrPassword" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="NAV_Credential" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="438,181" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[vStrPassword]" Username="[vStrUsername]" />
+                          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,383" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                            <TryCatch.Try>
+                              <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'finsql.exe  Conexión'" sap:VirtualizedContainerService.HintSize="334,155" sap2010:WorkflowViewState.IdRef="ClickImage_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                <ui:ClickImage.CursorPosition>
+                                  <ui:CursorPosition Position="TopRight">
+                                    <ui:CursorPosition.OffsetX>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:CursorPosition.OffsetX>
+                                    <ui:CursorPosition.OffsetY>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:CursorPosition.OffsetY>
+                                  </ui:CursorPosition>
+                                </ui:ClickImage.CursorPosition>
+                                <ui:ClickImage.Image>
+                                  <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOoAAAAPCAYAAADqHVN/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKXSURBVGhD7ZnBbcMwDEW9UwEPk5M3ydEz9Ja70FOvvWQBj1AgCxTZQCUVUaZoSjaMNkgUEviQRVKygOaFVNpdr1dvMqHcx6fpQWWgmpLwA2H2mGagmpI4qG/vz6eWzUA1JRmoj2vbQZ1G3/ejn7SYqQntBtV5f/nx/kCjlnMHtWwZqH3X+S5o8I75gx4NVPvi+HNxUC9xJDt/6XAE7QEVc+PeZCfwlWJHsf4E7/HiXS1bXlFrH34Do3lloHII1gCk+Foel8yNcAYgZQy+JDIoY/wMSnCDWrY6qDhPVRa0Bqq2Ps6nsc/32Zrb9X6c5vg4oA8qPl+Pzylf6QZMm1QEFUH5ngGRwCRAeRzXgHGQMsm9QGfIV0HlMdBhgjjoCGfCkXJatgqozg/wwR+cFitI5tA8gDQD5AYBGs+lOckNvhvcLa6eJz9ngBzz+R6mTaq1vgE4CRDNtRHWyHY1k9yLV00RQzB5RcW2N5xHVNqWrQzqVpC4imtuMGXVrrY/Pof8KPSX8jW/VdVdWm19JVzSj2NcX4UUxXKDyX2jO5j2zjjHSktVu2W7E6iUw4At5eJI7a70l/Kl30DdpSKoEYijgEQFFcYjVkBsldn6hfhe+Iz7azGhUF2FUfvbsq20vjMwoaWkWAkG4U9rwD+MU8yb/NjDvq6cy8Er+eez7mh9xTmLerG86h2VQIRHfldMfj5CTN4fF5Iwxjtt2LsCKra92S/QrP1t2TJQFz/I4P0w+nq4VyZQKn/4AMpiDVXS6I/Q6rl4h2W55Md30vtRfB7OQ2vu/wFvJa92R83gjHZBGBESBVTMxSpchFWBkfY+AXwqqAWAqf1t2fKKanppcVA5CM+ils1ANSX9F6hY8TQr/utmp9o1738BV8FI4Cn5yb4AAAAASUVORK5CYII=" />
+                                </ui:ClickImage.Image>
+                                <ui:ClickImage.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="de41443c-a1a4-492a-b26b-0b221c55d2d2" Selector="&lt;wnd app='finsql.exe' cls='C/SIDE Glued' title='Conexión' /&gt;" TimeoutMS="2000">
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:ClickImage.Target>
+                              </ui:ClickImage>
+                            </TryCatch.Try>
+                            <TryCatch.Catches>
+                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ActivityAction x:TypeArguments="s:Exception">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                  </ActivityAction.Argument>
+                                  <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'finsql.exe  Conexión'" sap:VirtualizedContainerService.HintSize="334,155" sap2010:WorkflowViewState.IdRef="ClickImage_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                    <ui:ClickImage.CursorPosition>
+                                      <ui:CursorPosition Position="TopRight">
+                                        <ui:CursorPosition.OffsetX>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:CursorPosition.OffsetX>
+                                        <ui:CursorPosition.OffsetY>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:CursorPosition.OffsetY>
+                                      </ui:CursorPosition>
+                                    </ui:ClickImage.CursorPosition>
+                                    <ui:ClickImage.Image>
+                                      <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPYAAAAPCAYAAADXjzIZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ8SURBVGhD7ZjdjYMwDMeZiodMw1NW4ZU90D2dxBgs0CW6gS8OMThuHCi6L1pb+ivEdgJS+WGnzf1+B5OppPHj03RRGdgmVfiCmF3TDGyTKgP7umZgm1QZ2Ne182DPPbRtD3MpZnoJnQb7NoBzA9xoTG6z37Mq2G3TQBPVwSjj/w1s+9B8uzjYbn0XFvkpBUp2BmzMze7hYKCFDzEP+e1vMLjgt4/IavWKXYPFQHp5ZWBzaPaAPQu2vAcBLGOTzyGOcQ/esY/Bm9tzYOOcfzn3wC6tT/O5b/N9juY2LfTzFu879IWOgq/H6zW/0G2YDkkFG8HCkl2CEedyxBiu4VVYmtwrIO01sHks2G1w4MLGk2/iaPYU2CN0AZRuLMUUyRyaR/A24MZOgMlzaU4aO2i6cYkXnyd/zvhRwHy+h+mQ9FY8ASqBk0Dz8aF9Fib34lVZxBDkrWJjG56eR1byN7bjYB8Fj0tds8CXVdPa/njNXyz0a/klv1XtU9ptxSWM0o9j/M12oEZbc5PkvrXYOsdKbu042h+BTTkMcC0XR2q/pV/Ll34D+5RUsKkVzqAKRnMxTlhhq/+2BeN74TX/GPCYsFi9OfRB1o4/3YpvgMUWl2IaPMK/rgn+rp9T3gx9G/Yd9VwOqubfnvVEKy6eU9Wb5VXP2ASuOOuufj6G2O75V8Ibz+RpbxXs5d/w7Jth7Xi0KtgPf0Dh+Tb52nAuXsGqvCgRrIc1VKmTP0FezsUzOMslP96T7o/i8/g8tOb3gXiVPP2MLWBOfud9DnQGJFb5CtwFeJe9Q2s9KWAXgbd2HK1esU1vLQ622bXMwDap+hmwl8q9VX+SVdnvM4Av+wW/x1fGawwAAAAASUVORK5CYII=" />
+                                    </ui:ClickImage.Image>
+                                    <ui:ClickImage.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="de41443c-a1a4-492a-b26b-0b221c55d2d2" Selector="&lt;wnd app='finsql.exe' cls='C/SIDE Glued' title='Conexión' /&gt;" TimeoutMS="2000">
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:ClickImage.Target>
+                                  </ui:ClickImage>
+                                </ActivityAction>
+                              </Catch>
+                            </TryCatch.Catches>
+                          </TryCatch>
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'client  Conexión'" sap:VirtualizedContainerService.HintSize="438,135" sap2010:WorkflowViewState.IdRef="TypeInto_3" Text="[vStrUsername+&quot;[k(tab)]&quot;]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="425852ff-8084-4fdb-8df4-4ef2caa79be4" InformativeScreenshot="ae0339fc8073c6eb25502b5c861676f6" Selector="&lt;wnd app='finsql.exe' cls='C/SIDE Glued' title='Conexión' /&gt;&lt;ctrl name='Conexión' role='client' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:TypeSecureText AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Secure Text 'client  Conexión'" sap:VirtualizedContainerService.HintSize="438,107" sap2010:WorkflowViewState.IdRef="TypeSecureText_1" SecureText="[vStrPassword]">
+                            <ui:TypeSecureText.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5767df6f-2815-4246-8fdd-11ff62837e41" InformativeScreenshot="005ab95fe1ca7594f6a6f31aa7e4d45d" Selector="&lt;wnd app='finsql.exe' cls='C/SIDE Glued' title='Conexión' /&gt;&lt;ctrl name='Conexión' role='client' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:TypeSecureText.Target>
+                          </ui:TypeSecureText>
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'client  Conexión'" sap:VirtualizedContainerService.HintSize="438,135" sap2010:WorkflowViewState.IdRef="TypeInto_4" Text="%[k(enter)][k(enter)]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5ac896c7-443a-4800-9952-26d1cf2eeca6" InformativeScreenshot="005ab95fe1ca7594f6a6f31aa7e4d45d" Selector="&lt;wnd app='finsql.exe' cls='C/SIDE Glued' title='Conexión' /&gt;&lt;ctrl name='Conexión' role='client' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap:VirtualizedContainerService.HintSize="500,1506" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="x:String" Name="vStrUsername" />
+                            <Variable x:TypeArguments="ss:SecureString" Name="vStrPassword" />
+                          </Sequence.Variables>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'menu item  Archivo'" sap:VirtualizedContainerService.HintSize="438,107" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="12ea8f1b-dfce-4127-bdaa-38abecd11172" InformativeScreenshot="996fa9e1a169efff0e778c4744d90c3a" Selector="&lt;ctrl automationid='MenuBar' name='Aplicación' role='menu bar' /&gt;&lt;ctrl name='Archivo' role='menu item' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'menu item'" sap:VirtualizedContainerService.HintSize="438,107" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition Position="Center">
+                                <ui:CursorPosition.OffsetX>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetX>
+                                <ui:CursorPosition.OffsetY>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:CursorPosition.OffsetY>
+                              </ui:CursorPosition>
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="166dfb21-8fe3-4a37-b319-36a259df0ffe" InformativeScreenshot="ac9af704abd2840b790a942d03f56c9b" Selector="&lt;wnd app='finsql.exe' cls='#32768' idx='*' /&gt;&lt;ctrl name='Archivo' role='popup menu' /&gt;&lt;ctrl automationid='*' name='*BULKMATIC DE MEXICO' role='menu item' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="NAV_Credential" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="438,181" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[vStrPassword]" Username="[vStrUsername]" />
+                          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,383" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                            <TryCatch.Try>
+                              <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'finsql.exe  Conexión'" sap:VirtualizedContainerService.HintSize="334,155" sap2010:WorkflowViewState.IdRef="ClickImage_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                <ui:ClickImage.CursorPosition>
+                                  <ui:CursorPosition Position="TopRight">
+                                    <ui:CursorPosition.OffsetX>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:CursorPosition.OffsetX>
+                                    <ui:CursorPosition.OffsetY>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:CursorPosition.OffsetY>
+                                  </ui:CursorPosition>
+                                </ui:ClickImage.CursorPosition>
+                                <ui:ClickImage.Image>
+                                  <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAOoAAAAPCAYAAADqHVN/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKXSURBVGhD7ZnBbcMwDEW9UwEPk5M3ydEz9Ja70FOvvWQBj1AgCxTZQCUVUaZoSjaMNkgUEviQRVKygOaFVNpdr1dvMqHcx6fpQWWgmpLwA2H2mGagmpI4qG/vz6eWzUA1JRmoj2vbQZ1G3/ejn7SYqQntBtV5f/nx/kCjlnMHtWwZqH3X+S5o8I75gx4NVPvi+HNxUC9xJDt/6XAE7QEVc+PeZCfwlWJHsf4E7/HiXS1bXlFrH34Do3lloHII1gCk+Foel8yNcAYgZQy+JDIoY/wMSnCDWrY6qDhPVRa0Bqq2Ps6nsc/32Zrb9X6c5vg4oA8qPl+Pzylf6QZMm1QEFUH5ngGRwCRAeRzXgHGQMsm9QGfIV0HlMdBhgjjoCGfCkXJatgqozg/wwR+cFitI5tA8gDQD5AYBGs+lOckNvhvcLa6eJz9ngBzz+R6mTaq1vgE4CRDNtRHWyHY1k9yLV00RQzB5RcW2N5xHVNqWrQzqVpC4imtuMGXVrrY/Pof8KPSX8jW/VdVdWm19JVzSj2NcX4UUxXKDyX2jO5j2zjjHSktVu2W7E6iUw4At5eJI7a70l/Kl30DdpSKoEYijgEQFFcYjVkBsldn6hfhe+Iz7azGhUF2FUfvbsq20vjMwoaWkWAkG4U9rwD+MU8yb/NjDvq6cy8Er+eez7mh9xTmLerG86h2VQIRHfldMfj5CTN4fF5Iwxjtt2LsCKra92S/QrP1t2TJQFz/I4P0w+nq4VyZQKn/4AMpiDVXS6I/Q6rl4h2W55Md30vtRfB7OQ2vu/wFvJa92R83gjHZBGBESBVTMxSpchFWBkfY+AXwqqAWAqf1t2fKKanppcVA5CM+ils1ANSX9F6hY8TQr/utmp9o1738BV8FI4Cn5yb4AAAAASUVORK5CYII=" />
+                                </ui:ClickImage.Image>
+                                <ui:ClickImage.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="de41443c-a1a4-492a-b26b-0b221c55d2d2" Selector="&lt;wnd app='finsql.exe' cls='C/SIDE Glued' title='Conexión' /&gt;" TimeoutMS="2000">
+                                    <ui:Target.WaitForReady>
+                                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                                    </ui:Target.WaitForReady>
+                                  </ui:Target>
+                                </ui:ClickImage.Target>
+                              </ui:ClickImage>
+                            </TryCatch.Try>
+                            <TryCatch.Catches>
+                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ActivityAction x:TypeArguments="s:Exception">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                  </ActivityAction.Argument>
+                                  <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'finsql.exe  Conexión'" sap:VirtualizedContainerService.HintSize="334,155" sap2010:WorkflowViewState.IdRef="ClickImage_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                    <ui:ClickImage.CursorPosition>
+                                      <ui:CursorPosition Position="TopRight">
+                                        <ui:CursorPosition.OffsetX>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:CursorPosition.OffsetX>
+                                        <ui:CursorPosition.OffsetY>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:CursorPosition.OffsetY>
+                                      </ui:CursorPosition>
+                                    </ui:ClickImage.CursorPosition>
+                                    <ui:ClickImage.Image>
+                                      <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPYAAAAPCAYAAADXjzIZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJ8SURBVGhD7ZjdjYMwDMeZiodMw1NW4ZU90D2dxBgs0CW6gS8OMThuHCi6L1pb+ivEdgJS+WGnzf1+B5OppPHj03RRGdgmVfiCmF3TDGyTKgP7umZgm1QZ2Ne182DPPbRtD3MpZnoJnQb7NoBzA9xoTG6z37Mq2G3TQBPVwSjj/w1s+9B8uzjYbn0XFvkpBUp2BmzMze7hYKCFDzEP+e1vMLjgt4/IavWKXYPFQHp5ZWBzaPaAPQu2vAcBLGOTzyGOcQ/esY/Bm9tzYOOcfzn3wC6tT/O5b/N9juY2LfTzFu879IWOgq/H6zW/0G2YDkkFG8HCkl2CEedyxBiu4VVYmtwrIO01sHks2G1w4MLGk2/iaPYU2CN0AZRuLMUUyRyaR/A24MZOgMlzaU4aO2i6cYkXnyd/zvhRwHy+h+mQ9FY8ASqBk0Dz8aF9Fib34lVZxBDkrWJjG56eR1byN7bjYB8Fj0tds8CXVdPa/njNXyz0a/klv1XtU9ptxSWM0o9j/M12oEZbc5PkvrXYOsdKbu042h+BTTkMcC0XR2q/pV/Ll34D+5RUsKkVzqAKRnMxTlhhq/+2BeN74TX/GPCYsFi9OfRB1o4/3YpvgMUWl2IaPMK/rgn+rp9T3gx9G/Yd9VwOqubfnvVEKy6eU9Wb5VXP2ASuOOuufj6G2O75V8Ibz+RpbxXs5d/w7Jth7Xi0KtgPf0Dh+Tb52nAuXsGqvCgRrIc1VKmTP0FezsUzOMslP96T7o/i8/g8tOb3gXiVPP2MLWBOfud9DnQGJFb5CtwFeJe9Q2s9KWAXgbd2HK1esU1vLQ622bXMwDap+hmwl8q9VX+SVdnvM4Av+wW/x1fGawwAAAAASUVORK5CYII=" />
+                                    </ui:ClickImage.Image>
+                                    <ui:ClickImage.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="de41443c-a1a4-492a-b26b-0b221c55d2d2" Selector="&lt;wnd app='finsql.exe' cls='C/SIDE Glued' title='Conexión' /&gt;" TimeoutMS="2000">
+                                        <ui:Target.WaitForReady>
+                                          <InArgument x:TypeArguments="ui:WaitForReady" />
+                                        </ui:Target.WaitForReady>
+                                      </ui:Target>
+                                    </ui:ClickImage.Target>
+                                  </ui:ClickImage>
+                                </ActivityAction>
+                              </Catch>
+                            </TryCatch.Catches>
+                          </TryCatch>
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'client  Conexión'" sap:VirtualizedContainerService.HintSize="438,135" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="[vStrUsername+&quot;[k(tab)]&quot;]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="425852ff-8084-4fdb-8df4-4ef2caa79be4" InformativeScreenshot="ae0339fc8073c6eb25502b5c861676f6" Selector="&lt;wnd app='finsql.exe' cls='C/SIDE Glued' title='Conexión' /&gt;&lt;ctrl name='Conexión' role='client' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:TypeSecureText AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Secure Text 'client  Conexión'" sap:VirtualizedContainerService.HintSize="438,107" sap2010:WorkflowViewState.IdRef="TypeSecureText_2" SecureText="[vStrPassword]">
+                            <ui:TypeSecureText.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5767df6f-2815-4246-8fdd-11ff62837e41" InformativeScreenshot="005ab95fe1ca7594f6a6f31aa7e4d45d" Selector="&lt;wnd app='finsql.exe' cls='C/SIDE Glued' title='Conexión' /&gt;&lt;ctrl name='Conexión' role='client' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:TypeSecureText.Target>
+                          </ui:TypeSecureText>
+                          <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'client  Conexión'" sap:VirtualizedContainerService.HintSize="438,135" sap2010:WorkflowViewState.IdRef="TypeInto_7" Text="%[k(enter)][k(enter)]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5ac896c7-443a-4800-9952-26d1cf2eeca6" InformativeScreenshot="005ab95fe1ca7594f6a6f31aa7e4d45d" Selector="&lt;wnd app='finsql.exe' cls='C/SIDE Glued' title='Conexión' /&gt;&lt;ctrl name='Conexión' role='client' /&gt;">
+                                <ui:Target.TimeoutMS>
+                                  <InArgument x:TypeArguments="x:Int32" />
+                                </ui:Target.TimeoutMS>
+                                <ui:Target.WaitForReady>
+                                  <InArgument x:TypeArguments="ui:WaitForReady" />
+                                </ui:Target.WaitForReady>
+                              </ui:Target>
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </ActivityAction>
+              </ui:OpenApplication.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:OpenApplication>
+          </Sequence>
         </Sequence>
       </If.Then>
       <If.Else>
@@ -298,7 +599,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <Assign sap:VirtualizedContainerService.HintSize="933,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+    <Assign sap:VirtualizedContainerService.HintSize="925,82" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Boolean">[out_BooProcess]</OutArgument>
       </Assign.To>
@@ -306,6 +607,6 @@
         <InArgument x:TypeArguments="x:Boolean">True</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="933,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace" Message="[&quot;[&quot;+vStrActivityName+&quot;] ha finalizado...&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="925,92" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace" Message="[&quot;[&quot;+vStrActivityName+&quot;] ha finalizado...&quot;]" />
   </Sequence>
 </Activity>
