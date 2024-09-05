@@ -6,10 +6,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>674,5019</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>732,5852.8</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="46">
+    <scg:List x:TypeArguments="x:String" Capacity="92">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -56,10 +56,14 @@
       <x:String>UiPath.DataTableUtilities</x:String>
       <x:String>System.Text.RegularExpressions</x:String>
       <x:String>System.Globalization</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="50">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="100">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -110,9 +114,10 @@
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="592,4954" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="592,5912" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="vStrActivityName" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="vLisNoCumplen" />
@@ -132,6 +137,7 @@
       <Variable x:TypeArguments="x:String" Name="vStrUsername" />
       <Variable x:TypeArguments="ss:SecureString" Name="vStrPassword" />
       <Variable x:TypeArguments="ui:WorkbookApplication" Name="vObjWB" />
+      <Variable x:TypeArguments="sd:DataTable" Name="vdt" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -139,20 +145,41 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitAllSettings workflow" sap:VirtualizedContainerService.HintSize="530,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\InitAllSettings.xaml">
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="529.6,584" sap2010:WorkflowViewState.IdRef="ForEach`1_23" Values="[Directory.GetFiles(&quot;C:\Users\rpaprov01\Documents\PreciosDiesel\CONSOLIDADO&quot;)]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="currentItem" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,458.4" sap2010:WorkflowViewState.IdRef="Sequence_53">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[vdt]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="387.2,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Hoja1" WorkbookPath="[currentItem.ToString]" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="387.2,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[currentItem.ToString]" />
+            <ui:AppendRange DataTable="[vdt]" DisplayName="Append Range Workbook" sap:VirtualizedContainerService.HintSize="387.2,116" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Hoja1" WorkbookPath="C:\Users\rpaprov01\Documents\PreciosDiesel\exp2.xlsx" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+    <ui:ReadRange Range="{x:Null}" AddHeaders="False" DataTable="[vdt]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="529.6,88" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Hoja1" WorkbookPath="C:\Users\rpaprov01\Documents\PreciosDiesel\exp2.xlsx" />
+    <ui:WriteCsvFile AddHeaders="True" DataTable="[vdt]" Delimitator="Pipe" DisplayName="Write CSV" FilePath="C:\Users\rpaprov01\Documents\PreciosDiesel\exp.csv" sap:VirtualizedContainerService.HintSize="529.6,155.2" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1" ShouldQuote="True" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitAllSettings workflow" sap:VirtualizedContainerService.HintSize="529.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\InitAllSettings.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">Data\Config.xlsx</InArgument>
         <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">[{"Settings", "Constants"}]</InArgument>
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config">[Config]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="LeerEstructuraTablaReporte" sap:VirtualizedContainerService.HintSize="530,1329" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" Workbook="[vObjWB]" WorkbookPath="C:\Users\administrador.BULKMATIC\Documents\PreciosDiesel\Archivos Generados\2023\07\03\PrecioDiesel 20230703 - copia.xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="LeerEstructuraTablaReporte" sap:VirtualizedContainerService.HintSize="529.6,1331.2" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" Workbook="[vObjWB]" WorkbookPath="C:\Users\administrador.BULKMATIC\Documents\PreciosDiesel\Archivos Generados\2023\07\03\PrecioDiesel 20230703 - copia.xlsx">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,1219" sap2010:WorkflowViewState.IdRef="Sequence_45">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,1221.6" sap2010:WorkflowViewState.IdRef="Sequence_45">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="vDtbReporte" />
               <Variable x:TypeArguments="x:Int32" Name="vIntIndex" />
@@ -164,14 +191,14 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelReadRange AddHeaders="True" DataTable="[vDtbReporte]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[vObjWB.GetSheets(0)]">
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[vDtbReporte]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[vObjWB.GetSheets(0)]">
               <ui:ExcelReadRange.Range>
                 <InArgument x:TypeArguments="x:String">
                   <Literal x:TypeArguments="x:String" Value="" />
                 </InArgument>
               </ui:ExcelReadRange.Range>
             </ui:ExcelReadRange>
-            <ui:LookupDataTable CellValue="{x:Null}" LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[vDtbReporte]" DisplayName="ExtraerIndexBuscado" sap:VirtualizedContainerService.HintSize="434,292" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnName="[Config(&quot;ColQTerminal&quot;).ToString]" LookupValue="GDL" RowIndex="[vIntIndex]" TargetColumnName="[Config(&quot;ColQTerminal&quot;).ToString]">
+            <ui:LookupDataTable CellValue="{x:Null}" LookupColumnIndex="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[vDtbReporte]" DisplayName="ExtraerIndexBuscado" sap:VirtualizedContainerService.HintSize="433.6,295.2" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnName="[Config(&quot;ColQTerminal&quot;).ToString]" LookupValue="GDL" RowIndex="[vIntIndex]" TargetColumnName="[Config(&quot;ColQTerminal&quot;).ToString]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -179,7 +206,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:LookupDataTable>
-            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_54">
+            <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_54">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[vStrBE]</OutArgument>
               </Assign.To>
@@ -187,7 +214,7 @@
                 <InArgument x:TypeArguments="x:String">Nothing</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_53">
+            <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_53">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[vStrSE]</OutArgument>
               </Assign.To>
@@ -195,7 +222,7 @@
                 <InArgument x:TypeArguments="x:String">Nothing</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_51">
+            <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_51">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Object">[vDtbReporte.Rows(vIntIndex)(Config("ColQStatus").ToString)]</OutArgument>
               </Assign.To>
@@ -203,7 +230,7 @@
                 <InArgument x:TypeArguments="x:String">[If(vStrBE.Equals("Nothing") And vStrSE.Equals("Nothing"),"Exitoso","Fallido")]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_52">
+            <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_52">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Object">[vDtbReporte.Rows(vIntIndex)(Config("ColQComentarios").ToString)]</OutArgument>
               </Assign.To>
@@ -211,8 +238,8 @@
                 <InArgument x:TypeArguments="x:String">[vDtbReporte.Rows(vIntIndex)(Config("ColQComentarios").ToString).ToString+";"+If(vStrBE.Equals(Nothing) And vStrSE.Equals(Nothing),"Subido exitosamente a NAV","Se presentó error al subir terminal a NAV.")]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ExcelWriteRange AddHeaders="False" DataTable="[vDtbReporte]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="434,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="[vObjWB.GetSheets(0)]" StartingCell="A2" />
-            <ui:ExcelCloseWorkbook DisplayName="Close Workbook" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_1" Workbook="[vObjWB]" />
+            <ui:ExcelWriteRange AddHeaders="False" DataTable="[vDtbReporte]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="433.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="[vObjWB.GetSheets(0)]" StartingCell="A2" />
+            <ui:ExcelCloseWorkbook DisplayName="Close Workbook" sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="ExcelCloseWorkbook_1" Workbook="[vObjWB]" />
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
@@ -439,17 +466,17 @@
       </Assign.Value>
     </Assign>
     <ui:Matches DisplayName="Find Matching Patterns" FirstMatch="[vStrFecha]" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[vStrFechaCompleta]" IsBuilderTabModified="False" Pattern="\b\d{1,2}\s+de\s+[a-zA-Z]+\s+del\s+\d{4}\b" RegexOption="IgnoreCase, Compiled" />
-    <ui:Matches DisplayName="Find Matching Patterns" FirstMatch="[vStrFecha]" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[vStrFecha]" IsBuilderTabModified="False" Pattern="(\d{1,2})\s+de\s+(\w+)\s+del\s+(\d{4})" RegexOption="IgnoreCase, Compiled" />
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[vStrFecha]" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+    <ui:Matches DisplayName="Find Matching Patterns" FirstMatch="[vStrFecha]" sap:VirtualizedContainerService.HintSize="529.6,60" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[vStrFecha]" IsBuilderTabModified="False" Pattern="(\d{1,2})\s+de\s+(\w+)\s+del\s+(\d{4})" RegexOption="IgnoreCase, Compiled" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="529.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[vStrFecha]" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="529.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,295" sap2010:WorkflowViewState.IdRef="Sequence_44">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,296" sap2010:WorkflowViewState.IdRef="Sequence_44">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_48">
+          <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_48">
             <Assign.To>
               <OutArgument x:TypeArguments="s:DateTime">[vDatFecha]</OutArgument>
             </Assign.To>
@@ -457,7 +484,7 @@
               <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(vStrFecha, "dd 'de' MMMM 'del' yyyy", Nothing)]</InArgument>
             </Assign.Value>
           </Assign>
-          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[vDatFecha.ToString(&quot;dd.MM.yyyy&quot;)]" />
+          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="433.6,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[vDatFecha.ToString(&quot;dd.MM.yyyy&quot;)]" />
         </Sequence>
       </ui:CommentOut.Body>
       <sap:WorkflowViewStateService.ViewState>
@@ -467,8 +494,8 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <aw:GetParentActivityName DisplayName="Get parent activity name" sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="GetParentActivityName_1" parentName="[vStrActivityName]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;[&quot;+vStrActivityName+&quot;] ha comenzado...&quot;]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;[&quot;+vStrActivityName+&quot;] ha finalizado...&quot;]" />
+    <aw:GetParentActivityName DisplayName="Get parent activity name" sap:VirtualizedContainerService.HintSize="529.6,24.8" sap2010:WorkflowViewState.IdRef="GetParentActivityName_1" parentName="[vStrActivityName]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="529.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;[&quot;+vStrActivityName+&quot;] ha comenzado...&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="529.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;[&quot;+vStrActivityName+&quot;] ha finalizado...&quot;]" />
   </Sequence>
 </Activity>

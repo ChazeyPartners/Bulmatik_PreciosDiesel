@@ -12,6 +12,7 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "vDtbSubirBaseDatos&Sequence_163",
         "vBooSuccess&State_3",
         "vIntIndex&Sequence_159",
         "vDtbReporte&Sequence_159",
@@ -193,6 +194,7 @@
       "Path": "Apps/NAV/ImputarPrecios.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "vBooErrorNotificacion&Sequence_26",
         "vBooErrorNotificacion&Sequence_20",
         "vBooNotificar&Sequence_19",
         "vBooTablaCostos&Sequence_1",
@@ -269,6 +271,7 @@
       "Path": "Test.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "vdt&Sequence_1",
         "vStrSE&Sequence_45",
         "vStrBE&Sequence_45",
         "vObjWB&Sequence_1",
@@ -317,6 +320,11 @@
       "Path": "Framework/InitAllApplications.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "vBooConectar&Sequence_28",
+        "vStrUsername&Sequence_29",
+        "vStrPassword&Sequence_29",
+        "vStrUsername&Sequence_30",
+        "vStrPassword&Sequence_30",
         "vStrPassword&Sequence_27",
         "vStrUsername&Sequence_27",
         "vColProcesos&Sequence_9",
@@ -329,6 +337,42 @@
         "in_Config",
         "out_BooProcess",
         "in_BooInitAll"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Apps/BD/InsertarBD.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vStrPassword&Sequence_3",
+        "vStrConexionEXitosa&Sequence_3",
+        "vStrConexion&Sequence_3",
+        "vIntAffectedRows&Sequence_3",
+        "vStrUsername&Sequence_1",
+        "vSecConnection&Sequence_1",
+        "vStrActivityName&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_StrProviderName",
+        "in_Config",
+        "in_DtbInfo",
+        "in_StrTable"
+      ],
+      "ConstantsSectionElementsOrder": null,
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Apps/Local/Excel_ReadReport.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "vBooExisteReporte&Sequence_1",
+        "vStrActivityName&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_StrNameSheetReport",
+        "out_DtbInfoReporte",
+        "in_StrFile"
       ],
       "ConstantsSectionElementsOrder": null,
       "AddedNamespaces": null

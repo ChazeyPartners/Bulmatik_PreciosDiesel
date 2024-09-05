@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1059,4148</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1616,5749</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActualizarEstado_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="70">
@@ -95,7 +95,7 @@
       <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="ImputarPrecios" sap:VirtualizedContainerService.HintSize="1626,4805" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="" DisplayName="ImputarPrecios" sap:VirtualizedContainerService.HintSize="1626,5684" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="vStrActivityName" />
       <Variable x:TypeArguments="ui:WorkbookApplication" Name="vObjWB" />
@@ -111,8 +111,8 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <aw:GetParentActivityName DisplayName="Get parent activity name" sap:VirtualizedContainerService.HintSize="1564,25" sap2010:WorkflowViewState.IdRef="GetParentActivityName_1" parentName="[vStrActivityName]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1564,94" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;[&quot;+vStrActivityName+&quot;] ha comenzado...&quot;]" />
-    <Sequence DisplayName="CostoDieselPorTerminal" sap:VirtualizedContainerService.HintSize="1564,2210" sap2010:WorkflowViewState.IdRef="Sequence_14">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1564,107" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;[&quot;+vStrActivityName+&quot;] ha comenzado...&quot;]" />
+    <Sequence DisplayName="CostoDieselPorTerminal" sap:VirtualizedContainerService.HintSize="1564,2303" sap2010:WorkflowViewState.IdRef="Sequence_14">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -128,7 +128,7 @@
           </ui:Target>
         </ui:UiElementExists.Target>
       </ui:UiElementExists>
-      <If Condition="[vBooTablaCostos]" sap:VirtualizedContainerService.HintSize="1502,1952" sap2010:WorkflowViewState.IdRef="If_3">
+      <If Condition="[vBooTablaCostos]" sap:VirtualizedContainerService.HintSize="1502,2045" sap2010:WorkflowViewState.IdRef="If_3">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -136,23 +136,23 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <If.Then>
-          <Sequence DisplayName="VentanaEncontrada" sap:VirtualizedContainerService.HintSize="450,205" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <Sequence DisplayName="VentanaEncontrada" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="Sequence_16">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,94" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Se encuentra en la ventana para imputar los precios del diesel por terminal.&quot;]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Se encuentra en la ventana para imputar los precios del diesel por terminal.&quot;]" />
           </Sequence>
         </If.Then>
         <If.Else>
-          <Sequence DisplayName="NoSeEncontróVentanaImputación" sap:VirtualizedContainerService.HintSize="1007,1790" sap2010:WorkflowViewState.IdRef="Sequence_17">
+          <Sequence DisplayName="NoSeEncontróVentanaImputación" sap:VirtualizedContainerService.HintSize="1007,1885" sap2010:WorkflowViewState.IdRef="Sequence_17">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="945,94" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Dirigiendose a costo diesel por terminal&quot;]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="945,107" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Dirigiendose a costo diesel por terminal&quot;]" />
             <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'operaciones item'" sap:VirtualizedContainerService.HintSize="945,107" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
@@ -175,10 +175,10 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:RetryScope DisplayName="Retry Abrir costos diesel" sap:VirtualizedContainerService.HintSize="945,697" sap2010:WorkflowViewState.IdRef="RetryScope_1">
+            <ui:RetryScope DisplayName="Retry Abrir costos diesel" sap:VirtualizedContainerService.HintSize="945,768" sap2010:WorkflowViewState.IdRef="RetryScope_1">
               <ui:RetryScope.ActivityBody>
                 <ActivityAction>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="490,520" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="488,593" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -239,10 +239,10 @@
                       </Sequence>
                     </TryCatch.Try>
                     <TryCatch.Catches>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="456,353" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="454,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
@@ -324,7 +324,7 @@
                 </ui:Target>
               </ui:UiElementExists.Target>
             </ui:UiElementExists>
-            <If Condition="[vBooTablaCostos]" sap:VirtualizedContainerService.HintSize="945,367" sap2010:WorkflowViewState.IdRef="If_6">
+            <If Condition="[vBooTablaCostos]" sap:VirtualizedContainerService.HintSize="945,378" sap2010:WorkflowViewState.IdRef="If_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -332,23 +332,23 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="VentanaEncontrada" sap:VirtualizedContainerService.HintSize="450,205" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                <Sequence DisplayName="VentanaEncontrada" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="Sequence_24">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,94" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Se encuentra en la ventana para imputar los precios del diesel por terminal.&quot;]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Se encuentra en la ventana para imputar los precios del diesel por terminal.&quot;]" />
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="NoSeEncontróVentanaImputación" sap:VirtualizedContainerService.HintSize="450,205" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                <Sequence DisplayName="NoSeEncontróVentanaImputación" sap:VirtualizedContainerService.HintSize="450,218" sap2010:WorkflowViewState.IdRef="Sequence_25">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,94" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;No se pudo reconocer la ventana de imputación de costos de diesel en NAV.&quot;]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;No se pudo reconocer la ventana de imputación de costos de diesel en NAV.&quot;]" />
                 </Sequence>
               </If.Else>
             </If>
@@ -356,7 +356,7 @@
         </If.Else>
       </If>
     </Sequence>
-    <Sequence DisplayName="AgregarRegistros" sap:VirtualizedContainerService.HintSize="1564,2080" sap2010:WorkflowViewState.IdRef="Sequence_19">
+    <Sequence DisplayName="AgregarRegistros" sap:VirtualizedContainerService.HintSize="1564,2840" sap2010:WorkflowViewState.IdRef="Sequence_19">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="vBooNotificar" />
       </Sequence.Variables>
@@ -365,7 +365,7 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'Ultimo'" sap:VirtualizedContainerService.HintSize="726,156" sap2010:WorkflowViewState.IdRef="ClickImage_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+      <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'Ultimo'" sap:VirtualizedContainerService.HintSize="726,155" sap2010:WorkflowViewState.IdRef="ClickImage_1" KeyModifiers="None" MouseButton="BTN_LEFT">
         <ui:ClickImage.CursorPosition>
           <ui:CursorPosition Position="Center">
             <ui:CursorPosition.OffsetX>
@@ -390,7 +390,7 @@
           </ui:Target>
         </ui:ClickImage.Target>
       </ui:ClickImage>
-      <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'Siguiente'" sap:VirtualizedContainerService.HintSize="726,156" sap2010:WorkflowViewState.IdRef="ClickImage_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+      <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'Siguiente'" sap:VirtualizedContainerService.HintSize="726,155" sap2010:WorkflowViewState.IdRef="ClickImage_3" KeyModifiers="None" MouseButton="BTN_LEFT">
         <ui:ClickImage.CursorPosition>
           <ui:CursorPosition Position="Center">
             <ui:CursorPosition.OffsetX>
@@ -402,7 +402,7 @@
           </ui:CursorPosition>
         </ui:ClickImage.CursorPosition>
         <ui:ClickImage.Image>
-          <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAACEAAAAZCAYAAAC/zUevAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOHSURBVEhL7ZZbSJNhGMe/ii66iogOFxEVdJNRIBRZRgRFEQRGFnQRdqCLsKy0zGrawTyU6TQyLTpYdlQr8zBzbnNu03lamlvTyuUsc2aaohWR4L/n3d4R1vbtU7rooh+87MJn3/N7n8M3BfwD/Jdw81/CzZgkbhrfYUd2A5Zf0GNFsgHLkvQ4WdyCZscAjxgdo5JgiWbEqJCgbMVTUycGer/Abu+DzuRAVO5LBCa5hFq6Bvk3pCFZgj08qqAZGPqBTsdXNNr6obf0QFHnQI6+AzfL7MgsaoXsrgUzIkud1ZKKJIm50Sqka9vQ3/sNZvsAqqy9UJo+4lFlB26r25GhsCE5/zVic6yIumNG+I1GzJepJIv4lGAtiC5sQcf7QdS++gx1YzfyjR/QYOtDWcNHyJ++RlxuM05QBQ5lvcDeq8+x43I9NsmrMelAMT4NfudP8o5PiWnHlbC390Hb9AlFNQ480L3HdWUb/yvwpPoDwm81IfRaA3Zl1GPbxVoEpRixPqkSi06VOwfYF6ISco0NR/OsUNZ1IdfQgSyVHenFrYh//IpHuFCbu7HlUh02p1Zjw4UqrE40YGmcDn6ntZiwv4hHeUdUYmNmDW4p3yJb047MElffz1LfI6jvv6O2dGNZggEBlHzRGS3mxZRjygk1xh1SoOJND4/yjKgEewfcKX2L1II3iM9rhuyeBeHU951XPZfYau+Hf6Ie02UaTDyugnBUCYEkWEXFEJUITDEg9VELYu6/xJHbTdhHfd+dYUJQWi2P+JO110wQosogRJLA4WdOCTbcYohKLE/WQ5ZtRhit3J4rJmynvgdT31edr+IRI5Eb2nnyUggRJSRAh2bC16qKSrDJDk6rQUh6PbbS58ZkI9acM2BhrI5H/CIkx8KTs9tT8oMKCLSiwr5CWH28zkUl2A38YjTOlVt3vhIr4/Xwj63ATFk5jyB+DCHkodlV+nB3cjphJEBVEEILeKB3RCUYUyNLEBivw5KzFVhAKzcrWgOBhs7FEObLq1zJqfcjklMF2PE1DwyfEk8aOzGF+juHVm4yW7ljNHQ09Ysp+ew47cjSh1Fyt0BoISYfVmB4eJg/yTs+JRhsNsazm7KVO8L77qn0PLnrFEj+NZUkwTiYR31nN2UynpKPUYAhWYKhozdfAP0j40zoJTmTHS2jknDTPfDduTls6NyHzY6U/ntiTBJ/F+AnZrKVupHE8N0AAAAASUVORK5CYII=" />
+          <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAABUAAAASCAYAAAC0EpUuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALOSURBVDhPvZNLTBNBGMdHb5roxatevBGCiRET9MBBg+9EjSYGD9oYiQSsJLwMD01AEAIIQSD4AAMhcgAUaHm0SktpS2ulUEHaClJbHoUAIrXhESj4d7o7bC3Qi4n+spvZ3e/7fvlmZofgH/D/pMsra3hjmsSZUj1Cc1UIyVIiOFOJx/Jh2GcXWFZgtkg1lhmEFWmhGJ7BnGuF/7jogWXIhSLpCCIKdEio+8x/D4CftFbrwNVKI336xV19Q/No6HaiqsOByncOVMnsqGgdwY3SHlx8ZuCLtkGQupdWcaJMT7taw5hzEW+pTGueofccHtSakVw9gMTqfsRVmJDwagBh2RqUdtpYtT+CtJCul8zkxPj4AhVOIrvOitHZRS7WOTiNyKc9uJSvw7XiD7hcqMN5ugx749u4+GYE6cnibvRafqBePYES6VdElRvRP/aTRQGj3YXgVCVCUhQ4ltWFQ1ka7E6So3d0nmX44KSetXWE56mh/ziN/KZhpL8exLkcHQw2/wLn9BJC6bT33O/AjtQOkCQZ0iQWFvUhSI8+UqGebkZyzQBiX/ThSIoKXUNzXNKfiBrMIHHtIIkykIR2iGpMLOKDk6561hH0UIHCui+Iem5EZLEB++PkkFu+c0kbVNN/l9xrAxHTO56Kxa0oUX1jUR/Cmh4v0EBUZqQbYcCpXC3IbQlazLMsCqS/t4FcbwCJbqZiKvR2K26BdcrNMnwI0jKVDaGZnTid143DGV0gNxuhdLi42IWaPhBRI8gdCRW2gNyVgsRKsC+pnYtvRpB6CcpU4GCGCrvSlbSTNhzIVSPkCe36VhNIDBWKqYx2x0ulaO6fYpX++Ek/jbv4gmTvJsi5QhJNZd6RiUgMP6ZJrKxqK35SLxPzSwinZ5/vqlWY6oZsJ30vV9tZ9vZskW5gnnQjh56ys/ToRpToceVlD5rodN3LHpYRmIDSvwf4DW/PFNbQKlS7AAAAAElFTkSuQmCC" />
         </ui:ClickImage.Image>
         <ui:ClickImage.Target>
           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c9493403-2aec-4a98-82aa-31aa59708e49" Selector="&lt;wnd app='finsql.exe' cls='C/SIDE Application' title='BULKMATIC DE MEXICO - Microsoft Dynamics NAV Classic - [Costo de*' /&gt;">
@@ -415,7 +415,7 @@
           </ui:Target>
         </ui:ClickImage.Target>
       </ui:ClickImage>
-      <ui:AnchorBase AnchorPosition="Auto" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="726,228" sap2010:WorkflowViewState.IdRef="AnchorBase_1">
+      <ui:AnchorBase AnchorPosition="Auto" DisplayName="Anchor Base" sap:VirtualizedContainerService.HintSize="726,240" sap2010:WorkflowViewState.IdRef="AnchorBase_1">
         <ui:AnchorBase.Action>
           <ActivityAction x:TypeArguments="ui:Anchor">
             <ActivityAction.Argument>
@@ -499,14 +499,14 @@
       </ui:TypeInto>
       <ui:UiElementExists DisplayName="Element Exists 'Notificar?'" Exists="[vBooNotificar]" sap:VirtualizedContainerService.HintSize="726,107" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
         <ui:UiElementExists.Target>
-          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2e816b6d-a154-46f7-bfe9-f08c5158caa6" InformativeScreenshot="596ae17b47b5ee3eaf9715d1a69e74a0" Selector="&lt;wnd app='finsql.exe' cls='#32770' title='Microsoft Dynamics NAV Classic' /&gt;" TimeoutMS="3000">
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2e816b6d-a154-46f7-bfe9-f08c5158caa6" InformativeScreenshot="596ae17b47b5ee3eaf9715d1a69e74a0" Selector="&lt;wnd app='finsql.exe' cls='#32770' title='Microsoft Dynamics NAV Classic' /&gt;&lt;ctrl name='No' role='push button' /&gt;" TimeoutMS="3000">
             <ui:Target.WaitForReady>
               <InArgument x:TypeArguments="ui:WaitForReady" />
             </ui:Target.WaitForReady>
           </ui:Target>
         </ui:UiElementExists.Target>
       </ui:UiElementExists>
-      <If Condition="[vBooNotificar]" DisplayName="Pop-Up Notificar" sap:VirtualizedContainerService.HintSize="726,544" sap2010:WorkflowViewState.IdRef="If_4">
+      <If Condition="[vBooNotificar]" DisplayName="Pop-Up Notificar" sap:VirtualizedContainerService.HintSize="726,554" sap2010:WorkflowViewState.IdRef="If_4">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -514,7 +514,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
         <If.Then>
-          <Sequence sap:VirtualizedContainerService.HintSize="450,352" sap2010:WorkflowViewState.IdRef="Sequence_20">
+          <Sequence sap:VirtualizedContainerService.HintSize="450,365" sap2010:WorkflowViewState.IdRef="Sequence_20">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="vBooErrorNotificacion" />
             </Sequence.Variables>
@@ -523,8 +523,8 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,94" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Salió pop-up de que sobrepasa margen, se procederá a notificar por medio de NAV.&quot;]" />
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="3000" DisplayName="Click 'push button  No'" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Salió pop-up de que sobrepasa margen, se procederá a notificar por medio de NAV.&quot;]" />
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="1000" DisplayName="Click 'push button  NO'" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -570,7 +570,68 @@
           </ui:Target>
         </ui:TypeInto.Target>
       </ui:TypeInto>
+      <ui:UiElementExists DisplayName="Element Exists 'Confirmar?'" Exists="[vBooNotificar]" sap:VirtualizedContainerService.HintSize="726,107" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
+        <ui:UiElementExists.Target>
+          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2e816b6d-a154-46f7-bfe9-f08c5158caa6" InformativeScreenshot="c28f35bd1dddb503b600993239afa447" Selector="&lt;wnd app='finsql.exe' cls='#32770' title='Microsoft Dynamics NAV Classic' /&gt;&lt;ctrl name='Microsoft Dynamics NAV Classic' role='dialog' /&gt;" TimeoutMS="3000">
+            <ui:Target.WaitForReady>
+              <InArgument x:TypeArguments="ui:WaitForReady" />
+            </ui:Target.WaitForReady>
+          </ui:Target>
+        </ui:UiElementExists.Target>
+      </ui:UiElementExists>
+      <If Condition="[vBooNotificar]" DisplayName="Pop-Up Notificar" sap:VirtualizedContainerService.HintSize="726,553" sap2010:WorkflowViewState.IdRef="If_7">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="450,365" sap2010:WorkflowViewState.IdRef="Sequence_26">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="vBooErrorNotificacion" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Salió pop-up de notificar cambio&quot;]" />
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="5000" DisplayName="Click 'push button  Si'" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ffb3e7b2-d0fa-4395-8552-989f8e4f262a" InformativeScreenshot="72352acbf85691efd18f4303729c9366" Selector="&lt;wnd app='finsql.exe' cls='#32770' title='Microsoft Dynamics NAV Classic' /&gt;&lt;wnd title='*Sí' cls='Button' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_27">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </Sequence>
+        </If.Else>
+      </If>
     </Sequence>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1564,94" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;[&quot;+vStrActivityName+&quot;] ha finalizado...&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1564,107" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Trace" Message="[&quot;[&quot;+vStrActivityName+&quot;] ha finalizado...&quot;]" />
   </Sequence>
 </Activity>

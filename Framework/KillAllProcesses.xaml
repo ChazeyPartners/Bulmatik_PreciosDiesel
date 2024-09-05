@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1254,1802</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>700,1804</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CloseAllApplications_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -71,10 +71,9 @@
       <AssemblyReference>UiPathTeam.SharePoint</AssemblyReference>
       <AssemblyReference>GetXamlFileNameActivity</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Use the Kill Process activity to force the termination of the Windows processes representing applications used in the business process.&#xA;Note that killing processes might have undesired outcomes, like losing unsaved changes to files." DisplayName="Kill All Processes" sap:VirtualizedContainerService.HintSize="648,1737" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence sap2010:Annotation.AnnotationText="Use the Kill Process activity to force the termination of the Windows processes representing applications used in the business process.&#xA;Note that killing processes might have undesired outcomes, like losing unsaved changes to files." DisplayName="Kill All Processes" sap:VirtualizedContainerService.HintSize="648,1739" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
       <Variable x:TypeArguments="sco:Collection(sd:Process)" Name="ProcessMachine" />
       <Variable x:TypeArguments="s:String[]" Name="arrayProcesos" />
@@ -90,7 +89,7 @@
     <aw:GetParentActivityName DisplayName="Get parent activity name" sap:VirtualizedContainerService.HintSize="586,25" sap2010:WorkflowViewState.IdRef="GetParentActivityName_1" parentName="[vStrActivityName]" />
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="586,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="[&quot;[&quot;+vStrActivityName+&quot;] ha comenzado...&quot;]" />
     <ui:GetProcesses ContinueOnError="{x:Null}" DisplayName="Obtener procesos" sap:VirtualizedContainerService.HintSize="586,25" sap2010:WorkflowViewState.IdRef="GetProcesses_1" Processes="[ProcessMachine]" />
-    <Assign DisplayName="Asignar" sap:VirtualizedContainerService.HintSize="586,81" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign DisplayName="Asignar" sap:VirtualizedContainerService.HintSize="586,82" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[strProcess]</OutArgument>
       </Assign.To>
@@ -98,7 +97,7 @@
         <InArgument x:TypeArguments="x:String">[In_Config("AppsToBeKilled").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Asignar" sap:VirtualizedContainerService.HintSize="586,81" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Asignar" sap:VirtualizedContainerService.HintSize="586,82" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[arrayProcesos]</OutArgument>
       </Assign.To>
@@ -133,7 +132,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log message (Kill processes)" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Killing process &quot;+itemName.tostring.Trim.ToUpper+&quot; ...&quot;]" />
-                  <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Cancelar proceso" sap:VirtualizedContainerService.HintSize="388,133" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="[itemName]" />
+                  <ui:KillProcess AppliesTo="{x:Null}" Process="{x:Null}" ContinueOnError="True" DisplayName="Cancelar proceso" sap:VirtualizedContainerService.HintSize="388,133" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="[itemName]" />
                 </Sequence>
               </TryCatch.Try>
               <TryCatch.Catches>
